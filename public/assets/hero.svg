@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17131f"/><stop offset=".48" stop-color="#342038"/><stop offset="1" stop-color="#ff5c93"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#ffd2e2" stop-opacity=".95"/><stop offset="1" stop-color="#ff5c93" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#fff" stroke-opacity=".08"/></pattern>
+</defs>
+<rect width="1200" height="700" fill="url(#bg)"/><rect width="1200" height="700" fill="url(#grid)"/>
+<circle cx="930" cy="160" r="270" fill="url(#glow)" opacity=".45"/>
+<path d="M780 670c-20-125 10-245 85-337 22-27 44-45 70-59-19-57-7-115 27-153 31 22 47 55 54 95 45 18 83 52 110 102 40 75 38 204-7 352z" fill="#111016"/>
+<path d="M940 265c-28 14-51 39-67 73 46 8 85 3 116-14-5-24-21-44-49-59z" fill="#ff84ad" opacity=".85"/>
+<path d="M702 630l185-212 76 52-124 160z" fill="#25202d" stroke="#ff86b1" stroke-width="8"/>
+<path d="M1015 180l74-74 25 25-74 74z" fill="#ffd2e2"/>
+<text x="680" y="110" fill="#fff" fill-opacity=".14" font-size="92" font-weight="900" font-family="Arial">PLAYER MARKET</text>
+</svg>
