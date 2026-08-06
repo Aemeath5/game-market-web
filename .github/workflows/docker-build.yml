@@ -1,0 +1,56 @@
+name: Docker build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Dockerfile"
+      - ".dockerignore"
+      - "nginx.conf"
+      - "compose.yaml"
+      - "package.json"
+      - "src/**"
+      - "public/**"
+      - ".github/workflows/docker-build.yml"
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: docker-build-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build --tag game-market-web:test .
+
+      - name: Start container on port 19090
+        run: docker run --detach --name game-market-web-test --publish 19090:80 game-market-web:test
+
+      - name: Verify health endpoint
+        run: |
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:19090/healthz; then
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs game-market-web-test
+          exit 1
+
+      - name: Verify SPA fallback
+        run: curl --fail --silent http://127.0.0.1:19090/market/example | grep -q '<div id="app"></div>'
+
+      - name: Cleanup
+        if: always()
+        run: docker rm --force game-market-web-test || true
