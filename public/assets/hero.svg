@@ -1,14 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
-<defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17131f"/><stop offset=".48" stop-color="#342038"/><stop offset="1" stop-color="#ff5c93"/></linearGradient>
-  <radialGradient id="glow"><stop stop-color="#ffd2e2" stop-opacity=".95"/><stop offset="1" stop-color="#ff5c93" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#fff" stroke-opacity=".08"/></pattern>
-</defs>
-<rect width="1200" height="700" fill="url(#bg)"/><rect width="1200" height="700" fill="url(#grid)"/>
-<circle cx="930" cy="160" r="270" fill="url(#glow)" opacity=".45"/>
-<path d="M780 670c-20-125 10-245 85-337 22-27 44-45 70-59-19-57-7-115 27-153 31 22 47 55 54 95 45 18 83 52 110 102 40 75 38 204-7 352z" fill="#111016"/>
-<path d="M940 265c-28 14-51 39-67 73 46 8 85 3 116-14-5-24-21-44-49-59z" fill="#ff84ad" opacity=".85"/>
-<path d="M702 630l185-212 76 52-124 160z" fill="#25202d" stroke="#ff86b1" stroke-width="8"/>
-<path d="M1015 180l74-74 25 25-74 74z" fill="#ffd2e2"/>
-<text x="680" y="110" fill="#fff" fill-opacity=".14" font-size="92" font-weight="900" font-family="Arial">PLAYER MARKET</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#4f5da4"/>
+      <stop offset=".46" stop-color="#9276bd"/>
+      <stop offset="1" stop-color="#ec79aa"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#24284a"/>
+      <stop offset=".55" stop-color="#424773"/>
+      <stop offset="1" stop-color="#20223f"/>
+    </linearGradient>
+    <linearGradient id="blade" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#d8fbff"/>
+      <stop offset=".45" stop-color="#7ce8ff"/>
+      <stop offset="1" stop-color="#9d8aff"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f5f4ff"/>
+      <stop offset=".55" stop-color="#c8c4ec"/>
+      <stop offset="1" stop-color="#918bb7"/>
+    </linearGradient>
+    <radialGradient id="sun">
+      <stop stop-color="#fff8dc" stop-opacity=".9"/>
+      <stop offset=".28" stop-color="#ffd2e8" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#ff8ab7" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="-18" dy="24" stdDeviation="22" flood-color="#171936" flood-opacity=".38"/>
+    </filter>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#fff" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="760" fill="url(#sky)"/>
+  <rect width="1280" height="760" fill="url(#grid)" opacity=".55"/>
+  <circle cx="1040" cy="140" r="330" fill="url(#sun)"/>
+
+  <g opacity=".18" fill="none" stroke="#fff">
+    <path d="M760 52h354l110 110v250" stroke-width="3"/>
+    <path d="M800 100h250l88 88" stroke-width="1.5"/>
+    <circle cx="1114" cy="180" r="96"/>
+    <circle cx="1114" cy="180" r="72" stroke-dasharray="8 12"/>
+    <path d="M1114 58v244M992 180h244"/>
+  </g>
+
+  <g opacity=".18" fill="#2e315c">
+    <path d="M610 610l100-188 72 47 82-132 66 38 64-102 72 42 54-84 116 72v457H570z"/>
+    <path d="M720 690V470h70v220zm98 0V390h64v300zm90 0V508h76v182zm102 0V342h84v348z"/>
+  </g>
+
+  <g filter="url(#shadow)" transform="translate(60 0)">
+    <path d="M892 186c37-23 85-19 116 13 36 38 36 98 2 138-21 25-51 37-82 35-37-3-70-27-84-62-18-45 2-99 48-124z" fill="#f0c2bd"/>
+    <path d="M843 234c8-74 62-123 134-119 55 3 93 36 109 87-31-20-65-28-102-22-30 5-59 21-86 49l-55 5z" fill="url(#hair)"/>
+    <path d="M861 257c-20 38-18 87 7 119 20 26 51 38 84 37-47 18-91 9-122-25-37-40-40-105-8-149l39 18z" fill="#c4bfeb"/>
+    <path d="M1000 244c20 7 37 23 47 43-26-7-49-7-72 1 6-19 14-34 25-44z" fill="#ff7fae" opacity=".9"/>
+    <path d="M930 290c9 0 16 7 16 16s-7 16-16 16-16-7-16-16 7-16 16-16zm69-8c8 0 15 7 15 15s-7 15-15 15-15-7-15-15 7-15 15-15z" fill="#3d3555"/>
+    <path d="M956 337c19 8 36 7 52-4-12 23-40 28-57 11z" fill="#b9657f"/>
+
+    <path d="M877 372c-48 29-85 80-100 144-18 76-6 164 30 244h263c34-78 45-162 28-237-16-69-57-124-111-153-34 27-73 28-110 2z" fill="url(#coat)"/>
+    <path d="M875 388c14 47 44 80 90 99 45-18 76-50 92-95 23 24 39 51 49 81-35 37-82 59-141 66-62-7-110-30-144-70 12-31 30-58 54-81z" fill="#f0edf9"/>
+    <path d="M915 419l50 68 48-68-8 106h-82z" fill="#ff6fa8"/>
+    <path d="M830 480c-38 37-67 94-86 170l72 28 93-176-79-22z" fill="#30345d"/>
+    <path d="M1087 466c42 37 74 92 96 166l-71 31-101-167 76-30z" fill="#343861"/>
+    <path d="M804 665c22-10 42-9 61 4l-18 53-63-12z" fill="#f0c2bd"/>
+    <path d="M1123 650c23-9 44-5 61 10l-12 55-65-6z" fill="#f0c2bd"/>
+    <path d="M834 535l74 36-68 130-87-40z" fill="#4a4f82" stroke="#8deaff" stroke-width="6"/>
+    <path d="M1023 528l78 34 66 119-76 38-96-146z" fill="#474b7d" stroke="#ff8db9" stroke-width="6"/>
+
+    <path d="M650 710l225-315 41 30-198 335z" fill="url(#blade)" stroke="#eefcff" stroke-width="8"/>
+    <path d="M679 682l151-214" stroke="#fff" stroke-opacity=".65" stroke-width="5"/>
+    <path d="M852 421l57-49 38 29-53 57z" fill="#222641" stroke="#ffd27a" stroke-width="7"/>
+  </g>
+
+  <g fill="#fff" opacity=".16" font-family="Arial, sans-serif" font-weight="900">
+    <text x="690" y="96" font-size="54" letter-spacing="12">MARKET LINK</text>
+    <text x="738" y="142" font-size="16" letter-spacing="9">SECURE TRADING NETWORK</text>
+  </g>
+
+  <g transform="translate(1060 560)">
+    <path d="M0 0h150v120H0z" fill="#24284a" fill-opacity=".35" stroke="#fff" stroke-opacity=".22"/>
+    <path d="M20 26h78M20 47h110M20 68h62" stroke="#fff" stroke-opacity=".55" stroke-width="7"/>
+    <circle cx="119" cy="89" r="16" fill="#ff6aa8"/>
+  </g>
 </svg>

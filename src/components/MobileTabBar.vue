@@ -15,22 +15,23 @@ const active = (path: string) => path === '/' ? route.path === '/' : route.path.
 </script>
 
 <template>
-  <nav class="fixed inset-x-0 bottom-0 z-50 grid h-17 grid-cols-5 border-t border-white/12 bg-[#0b0b0d]/96 px-2 lg:hidden">
+  <nav class="mobile-tabbar fixed inset-x-0 bottom-0 z-50 grid h-17 grid-cols-5 px-2 lg:hidden">
     <RouterLink
       v-for="tab in tabs"
       :key="tab.label"
       :to="tab.path"
       class="relative flex flex-col items-center justify-center gap-1 text-[10px] font-bold"
-      :class="active(tab.path) ? 'text-[var(--accent)]' : 'text-zinc-500'"
+      :class="active(tab.path) ? 'text-cyan-100' : 'text-white/45'"
     >
       <span
         v-if="tab.primary"
-        class="-mt-7 flex size-13 items-center justify-center border-4 border-[#0b0b0d] bg-[var(--accent)] text-black shadow-[4px_4px_0_#000]"
+        class="mobile-primary -mt-7 flex size-13 items-center justify-center rounded-[17px_7px_17px_7px] border-4 border-[#20233b]"
       >
         <component :is="tab.icon" class="size-6" />
       </span>
       <component v-else :is="tab.icon" class="size-5" />
       <span>{{ tab.label }}</span>
+      <span v-if="active(tab.path) && !tab.primary" class="absolute bottom-1 h-0.5 w-5 rounded-full bg-gradient-to-r from-cyan-300 to-pink-300" />
     </RouterLink>
   </nav>
 </template>
