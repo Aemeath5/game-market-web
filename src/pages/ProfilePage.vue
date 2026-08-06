@@ -1,44 +1,45 @@
 <script setup lang="ts">
-import { BadgeCheck, ChevronRight, LogIn, ShieldCheck } from 'lucide-vue-next'
-import Button from '@/components/ui/Button.vue'
+import { Bell, ChevronRight, CircleDollarSign, Edit3, LockKeyhole, PackageOpen, ReceiptText, Settings, ShieldCheck, ShoppingBag, UserRound } from 'lucide-vue-next'
 import { useAppStore } from '@/stores/app'
 
 const app = useAppStore()
+const menu = [
+  { label: '实名认证', icon: UserRound, value: '已认证' },
+  { label: '账户安全', icon: LockKeyhole, value: '安全' },
+  { label: '资金记录', icon: CircleDollarSign, value: '' },
+  { label: '通知设置', icon: Bell, value: '' },
+  { label: '偏好设置', icon: Settings, value: '' },
+]
 </script>
 
 <template>
-  <div class="space-y-5">
-    <section class="profile-hero panel overflow-hidden">
-      <div class="relative z-10 flex flex-col gap-5 p-6 md:flex-row md:items-center md:p-9">
-        <div class="flex size-20 items-center justify-center bg-[var(--accent)] text-3xl font-black text-black shadow-[7px_7px_0_#000]">
-          {{ app.userInitial }}
-        </div>
-        <div class="flex-1">
-          <span class="section-kicker">PLAYER PROFILE</span>
-          <h1 class="mt-2 text-3xl font-black">{{ app.displayName }}</h1>
-          <p class="mt-2 flex items-center gap-2 text-sm text-zinc-400"><BadgeCheck class="size-4 text-cyan-300" /> 普通用户 · 未完成卖家认证</p>
-        </div>
-        <Button v-if="!app.loggedIn" @click="app.mockLogin"><LogIn class="size-4" /> 模拟登录</Button>
-      </div>
-    </section>
-
-    <div class="grid gap-5 xl:grid-cols-[1fr_360px]">
-      <section class="panel p-5">
-        <h2 class="text-xl font-black">账户功能</h2>
-        <div class="mt-4 divide-y divide-white/10">
-          <button v-for="item in ['实名认证', '安全设置', '收货信息', '资金记录', '黑名单管理']" :key="item" class="flex w-full items-center justify-between py-4 text-left">
-            <span>{{ item }}</span>
-            <ChevronRight class="size-4 text-zinc-600" />
-          </button>
+  <div class="profile-page page-light">
+    <section class="profile-banner" />
+    <div class="profile-container">
+      <section class="profile-summary panel-light">
+        <div class="profile-avatar-wrap"><img src="/assets/reference/avatar-main.svg" alt="wiki" /></div>
+        <div class="profile-info"><div class="profile-name-row"><h1>{{ app.displayName }}</h1><span>Lv.12</span></div><p>旅行者，愿风神护佑你的每一笔交易。</p></div>
+        <button class="secondary-button profile-edit"><Edit3 /> 编辑资料</button>
+        <div class="profile-stats">
+          <div><strong>40</strong><span>我的挂单</span></div><div><strong>12</strong><span>已购商品</span></div><div><strong>98.6%</strong><span>好评率</span></div><div><strong>157</strong><span>背包道具</span></div>
         </div>
       </section>
-      <aside class="panel p-5">
-        <ShieldCheck class="size-8 text-emerald-300" />
-        <h2 class="mt-4 text-xl font-black">账户安全</h2>
-        <p class="mt-2 text-sm leading-6 text-zinc-500">登录设备正常，近期没有发现高风险操作。</p>
-        <div class="mt-5 h-2 overflow-hidden bg-white/8"><div class="h-full w-[76%] bg-emerald-300" /></div>
-        <p class="mt-2 text-xs text-zinc-500">安全评分 76 / 100</p>
-      </aside>
+
+      <section class="profile-cards">
+        <article class="panel-light profile-orders">
+          <header><h2>我的交易</h2><RouterLink to="/orders">全部订单 <ChevronRight /></RouterLink></header>
+          <div class="profile-order-grid">
+            <RouterLink to="/orders"><ShoppingBag /><span>待付款</span><i>0</i></RouterLink>
+            <RouterLink to="/orders"><PackageOpen /><span>待交付</span><i>2</i></RouterLink>
+            <RouterLink to="/orders"><ReceiptText /><span>已完成</span><i>18</i></RouterLink>
+            <RouterLink to="/orders"><ShieldCheck /><span>争议处理</span><i>0</i></RouterLink>
+          </div>
+        </article>
+
+        <article class="panel-light profile-menu">
+          <button v-for="item in menu" :key="item.label"><span><component :is="item.icon" />{{ item.label }}</span><span>{{ item.value }} <ChevronRight /></span></button>
+        </article>
+      </section>
     </div>
   </div>
 </template>

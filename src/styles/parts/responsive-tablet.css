@@ -1,0 +1,16 @@
+@media (max-width: 1100px) {
+  .hero-row { grid-template-columns: 1fr; }
+  .hero-carousel { height: 280px; }
+  .quick-grid { grid-template-columns: repeat(6,1fr); }
+  .market-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .inventory-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+}
+
+@media (max-width: 900px) {
+  .main-grid, .detail-lower, .profile-cards { grid-template-columns: 1fr; }
+  .detail-main { grid-template-columns: 1fr; }
+  .detail-gallery { border-right: 0; border-bottom: 1px solid #e5edf8; }
+  .profile-summary { grid-template-columns: auto 1fr; }
+  .profile-edit { grid-column: 2; }
+  .profile-stats { grid-column: 1 / 3; }
+}

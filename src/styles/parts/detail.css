@@ -1,0 +1,42 @@
+/* product detail */
+.breadcrumb { display: flex; align-items: center; gap: 5px; margin-bottom: 14px; color: #8a98aa; font-size: 12px; }
+.breadcrumb a { color: #4d78bb; text-decoration: none; }
+.breadcrumb svg { font-size: 12px; }
+.detail-main { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(360px,.85fr); overflow: hidden; }
+.detail-gallery { position: relative; min-height: 470px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: radial-gradient(circle at 50% 44%,#fff 0,#eef5ff 58%,#e0ebfa 100%); border-right: 1px solid #e5edf8; }
+.detail-gallery::before { content: ""; position: absolute; inset: 8%; border-radius: 50%; border: 1px solid rgba(100,139,194,.14); box-shadow: 0 0 0 36px rgba(255,255,255,.28); }
+.detail-gallery > img { position: relative; z-index: 1; max-width: 68%; max-height: 70%; object-fit: contain; filter: drop-shadow(0 20px 22px rgba(60,82,118,.20)); }
+.detail-quality { position: absolute; z-index: 2; top: 18px; left: 18px; padding: 5px 10px; border-radius: 8px; color: #986200; background: #fff4cf; border: 1px solid #f0d887; font-size: 11px; font-weight: 750; }
+.detail-gallery-actions { position: absolute; z-index: 2; left: 18px; bottom: 18px; display: flex; gap: 8px; }
+.detail-gallery-actions button { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 11px; border: 1px solid #dfe8f5; border-radius: 9px; background: rgba(255,255,255,.9); color: #69798f; font-size: 11px; }
+.detail-info { padding: 30px; }
+.detail-server { display: inline-flex; padding: 5px 9px; border-radius: 7px; background: #eef5ff; color: #4a74b6; font-size: 11px; font-weight: 700; }
+.detail-info h1 { margin: 15px 0 7px; color: #14213b; font-size: 30px; line-height: 1.15; font-weight: 800; }
+.detail-subtitle { margin: 0; color: #8493a8; font-size: 13px; line-height: 1.7; }
+.detail-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+.detail-tags span { padding: 5px 9px; border-radius: 8px; background: #f6f9fd; border: 1px solid #e6edf7; color: #687a92; font-size: 11px; }
+.detail-price { display: flex; align-items: end; justify-content: space-between; margin: 22px 0; padding: 17px 0; border-top: 1px solid #edf2f8; border-bottom: 1px solid #edf2f8; }
+.detail-price > span { color: #8493a8; font-size: 12px; }
+.detail-price strong { color: #e35c28; font-size: 42px; line-height: 1; }
+.detail-price small { font-size: 16px; margin-right: 4px; }
+.detail-rows { display: grid; gap: 10px; }
+.detail-rows > div { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 10px; border-bottom: 1px dashed #e5edf8; font-size: 12.5px; }
+.detail-rows span { color: #8493a8; }
+.detail-rows strong { color: #21314a; }
+.detail-actions { display: grid; grid-template-columns: auto 1fr; gap: 10px; margin-top: 24px; }
+.detail-buy { min-height: 46px; }
+.detail-lower { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 16px; margin-top: 16px; }
+.detail-description, .seller-card { padding: 22px; }
+.detail-description h2, .seller-card h2 { margin: 0; font-size: 18px; }
+.detail-description p { color: #708096; font-size: 13px; line-height: 1.8; }
+.detail-features { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 18px; }
+.detail-features span { display: flex; align-items: center; gap: 8px; padding: 11px; border-radius: 10px; background: #f6f9fd; color: #59708f; font-size: 12px; }
+.detail-features svg { color: #2aa56e; }
+.seller-profile { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.seller-profile img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 3px solid #edf3fb; }
+.seller-profile div { display: flex; flex-direction: column; gap: 4px; }
+.seller-profile span { color: #8493a8; font-size: 11px; }
+.seller-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; margin-top: 18px; }
+.seller-stats div { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 3px; border-radius: 9px; background: #f6f9fd; }
+.seller-stats strong { font-size: 13px; }
+.seller-stats span { color: #8493a8; font-size: 9px; }

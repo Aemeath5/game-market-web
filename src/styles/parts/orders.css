@@ -1,0 +1,9 @@
+/* orders */
+.orders-list { margin-top: 18px; overflow: hidden; }
+.orders-list article { display: grid; grid-template-columns: 58px minmax(0,1fr) auto auto; align-items: center; gap: 14px; padding: 16px; border-bottom: 1px solid #edf2f8; }
+.orders-list article:last-child { border-bottom: 0; }
+.orders-list img { width: 58px; height: 58px; object-fit: contain; border-radius: 10px; background: #f5f8fc; }
+.orders-list small { color: #8997aa; font-size: 10px; }
+.orders-list h3 { margin: 5px 0 0; font-size: 14px; }
+.orders-list strong { color: #e35c28; }
+.orders-list > article > span { padding: 6px 9px; border-radius: 8px; color: #4b75b4; background: #eef5ff; font-size: 11px; }

@@ -1,80 +1,61 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { ListFilter, Search, SlidersHorizontal } from 'lucide-vue-next'
-import Button from '@/components/ui/Button.vue'
+import { ChevronDown, Filter, Search, SlidersHorizontal } from 'lucide-vue-next'
 import GameCard from '@/components/ui/GameCard.vue'
 import { products } from '@/data/products'
 
-type MarketTab = 'market' | 'auction' | 'wanted'
-
-const currentTab = ref<MarketTab>('market')
-const tabs: Array<{ key: MarketTab; label: string }> = [
-  { key: 'market', label: '一口价' },
-  { key: 'auction', label: '拍卖' },
-  { key: 'wanted', label: '求购' },
-]
 const keyword = ref('')
-const sort = ref('recommend')
+const currentTab = ref<'market' | 'auction' | 'wanted'>('market')
+const filters = ['全部类型', '角色材料', '武器', '圣遗物', '消耗品']
+const activeFilter = ref('全部类型')
 
-const filtered = computed(() =>
-  products.filter((item) =>
-    item.title.toLowerCase().includes(keyword.value.toLowerCase()),
-  ),
-)
+const filtered = computed(() => products.filter((product) => product.title.includes(keyword.value.trim())))
 </script>
 
 <template>
-  <div class="space-y-5">
-    <div class="section-heading">
-      <div>
-        <span class="section-kicker">MARKET TERMINAL</span>
-        <h1>交易市场</h1>
-      </div>
-      <RouterLink to="/listings"><Button>发布商品</Button></RouterLink>
-    </div>
-
-    <div class="panel p-3 md:p-4">
-      <div class="grid grid-cols-3 gap-2">
-        <button
-          v-for="tab in tabs"
-          :key="tab.key"
-          class="market-tab"
-          :class="{ 'market-tab-active': currentTab === tab.key }"
-          @click="currentTab = tab.key"
-        >
-          {{ tab.label }}
-        </button>
+  <div class="market-page page-light">
+    <div class="market-container">
+      <div class="page-heading-row">
+        <div>
+          <p class="page-kicker">GENSHIN MARKET</p>
+          <h1>交易市场</h1>
+        </div>
+        <RouterLink to="/listings" class="primary-button">发布商品</RouterLink>
       </div>
 
-      <div class="mt-4 grid gap-3 md:grid-cols-[1fr_auto_auto]">
-        <label class="relative">
-          <Search class="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-zinc-500" />
-          <input v-model="keyword" class="field pl-10" placeholder="搜索商品名称、角色、装备..." />
-        </label>
-        <select v-model="sort" class="field min-w-36">
-          <option value="recommend">综合推荐</option>
-          <option value="newest">最新发布</option>
-          <option value="price-asc">价格从低到高</option>
-          <option value="price-desc">价格从高到低</option>
-        </select>
-        <Button variant="outline"><SlidersHorizontal class="size-4" /> 筛选</Button>
-      </div>
+      <section class="market-toolbar panel-light">
+        <div class="market-tabs">
+          <button :class="{ active: currentTab === 'market' }" @click="currentTab = 'market'">一口价</button>
+          <button :class="{ active: currentTab === 'auction' }" @click="currentTab = 'auction'">拍卖</button>
+          <button :class="{ active: currentTab === 'wanted' }" @click="currentTab = 'wanted'">求购</button>
+        </div>
+        <div class="market-search-row">
+          <label class="light-search"><Search /><input v-model="keyword" placeholder="搜索商品、材料、武器..." /></label>
+          <button class="light-select"><SlidersHorizontal /> 综合排序 <ChevronDown /></button>
+          <button class="filter-button"><Filter /> 筛选</button>
+        </div>
+        <div class="market-filter-chips">
+          <button v-for="item in filters" :key="item" :class="{ active: activeFilter === item }" @click="activeFilter = item">{{ item }}</button>
+        </div>
+      </section>
 
-      <div class="mt-3 flex flex-wrap items-center gap-2 text-xs">
-        <span class="flex items-center gap-1 text-zinc-500"><ListFilter class="size-4" /> 快速筛选：</span>
-        <button v-for="tag in ['已验号', '可改实名', '卖家认证', '24小时内发布']" :key="tag" class="filter-chip">
-          {{ tag }}
-        </button>
-      </div>
-    </div>
+      <div class="market-summary"><span>共找到 {{ filtered.length }} 个商品</span><span>安全交易 · 平台担保</span></div>
 
-    <div class="flex items-center justify-between text-sm text-zinc-500">
-      <span>共找到 {{ filtered.length }} 个商品</span>
-      <span>数据为前端演示</span>
-    </div>
+      <section class="market-layout">
+        <aside class="market-sidebar panel-light">
+          <h3>商品分类</h3>
+          <button v-for="item in filters" :key="item" :class="{ active: activeFilter === item }" @click="activeFilter = item">{{ item }}</button>
+          <h3>服务器</h3>
+          <label><input type="checkbox" checked /> 天空岛服</label>
+          <label><input type="checkbox" /> 世界树服</label>
+          <h3>价格区间</h3>
+          <div class="price-range"><input placeholder="最低价" /><span>-</span><input placeholder="最高价" /></div>
+        </aside>
 
-    <div class="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
-      <GameCard v-for="product in filtered" :key="product.id" :product="product" />
+        <div class="market-grid">
+          <GameCard v-for="product in filtered" :key="product.id" :product="product" />
+        </div>
+      </section>
     </div>
   </div>
 </template>

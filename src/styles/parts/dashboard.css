@@ -1,0 +1,81 @@
+/* dashboard */
+.dashboard-page { min-height: calc(100vh - 60px); background: radial-gradient(circle at 50% 0,rgba(205,226,255,.6),transparent 32%),linear-gradient(180deg,#f8fbff,#f3f8ff 45%,#eef5fd); color: #16243a; }
+.dashboard-container { max-width: 1306px; margin: 0 auto; padding: 22px 18px 42px; display: flex; flex-direction: column; gap: 18px; }
+.hero-row { display: grid; grid-template-columns: minmax(0,1.85fr) minmax(300px,1fr); gap: 16px; align-items: stretch; }
+.hero-carousel { position: relative; height: 358px; border-radius: 16px; overflow: hidden; background: #111; box-shadow: 0 16px 42px rgba(33,75,131,.10); }
+.hero-carousel__image { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.hero-carousel__caption { position: absolute; left: 0; right: 0; bottom: 0; height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; color: #fff; background: rgba(0,0,0,.5); font-size: 13px; font-weight: 700; }
+.hero-dots { display: flex; gap: 8px; }
+.hero-dots i { width: 7px; height: 7px; border-radius: 2px; background: rgba(255,255,255,.45); }
+.hero-dots i.active { background: #3289fa; border: 1px solid #fff; }
+.hero-side { display: flex; flex-direction: column; gap: 14px; }
+.wallet-card { border-radius: 16px; overflow: hidden; background: #fff; border: 1px solid rgba(218,229,245,.92); box-shadow: 0 14px 34px rgba(33,75,131,.10); }
+.wallet-card__head { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: radial-gradient(circle at 88% 0,rgba(120,170,255,.5),transparent 55%),linear-gradient(120deg,#2f4470,#3b5489 55%,#466097); }
+.wallet-greeting { display: inline-flex; align-items: center; gap: 7px; min-width: 0; color: #fff; font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wallet-greeting svg { flex-shrink: 0; font-size: 17px; color: #ffd36b; }
+.wallet-wallet-link { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 9px; color: rgba(255,255,255,.86); background: rgba(255,255,255,.16); }
+.wallet-card__body { padding: 16px 18px; }
+.wallet-balances { display: flex; align-items: center; }
+.wallet-balance { display: flex; align-items: center; gap: 11px; flex: 1; min-width: 0; }
+.wallet-balances__divider { width: 1px; align-self: stretch; margin: 2px 14px; background: rgba(231,238,248,.95); }
+.wallet-balance__icon { flex-shrink: 0; width: 40px; height: 40px; object-fit: contain; }
+.wallet-balance__text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+.wallet-balance__num { font-size: 22px; font-weight: 800; color: #14213b; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wallet-balance__label { font-size: 12px; color: #8493a8; }
+.wallet-voucher { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding: 9px 12px; border-radius: 12px; background: rgba(255,247,232,.86); border: 1px dashed rgba(217,119,6,.4); }
+.voucher-ticket { font-size: 18px; }
+.wallet-voucher__text { display: flex; align-items: baseline; gap: 6px; flex-shrink: 0; }
+.wallet-voucher__num { font-size: 15px; font-weight: 800; color: #b45309; }
+.wallet-voucher__label { font-size: 12px; color: #c2810a; }
+.wallet-voucher__expire { margin-left: auto; flex-shrink: 0; padding: 2px 9px; border-radius: 999px; background: rgba(214,90,58,.12); color: #d65a3a; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.wallet-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(231,238,248,.9); }
+.wallet-mini__item { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 0; border-radius: 10px; text-decoration: none; }
+.wallet-mini__item:hover { background: rgba(238,246,255,.8); }
+.wallet-mini__num { font-size: 18px; font-weight: 800; color: #14213b; }
+.wallet-mini__label { font-size: 12px; color: #8493a8; }
+.quick-grid { flex: 1; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.quick-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; padding: 12px 6px; border-radius: 12px; color: #46587a; text-decoration: none; transition: .2s ease; }
+.quick-cell:hover { color: #2369e8; background: rgba(255,255,255,.6); }
+.quick-cell__icon { font-size: 22px; color: #7287a6; }
+.quick-cell__label { font-size: 12.5px; font-weight: 600; }
+.market-stats { display: grid; grid-template-columns: repeat(4,1fr); align-items: center; padding: 4px 8px; }
+.mstat { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 20px; text-decoration: none; border-left: 1px solid rgba(210,222,238,.8); }
+.mstat:first-child { border-left: none; }
+.mstat__body { display: flex; flex-direction: column; min-width: 0; }
+.mstat__num { font-size: 23px; font-weight: 800; color: #14213b; line-height: 1.1; }
+.mstat__label { display: inline-flex; align-items: center; gap: 5px; margin-top: 5px; font-size: 12.5px; color: #8493a8; }
+.mstat__dot { width: 6px; height: 6px; border-radius: 50%; }
+.dot-active { background: #3d8bff; } .dot-sold { background: #f59e0b; } .dot-volume { background: #e0a52f; } .dot-total { background: #6573e8; }
+.mstat__icon { flex-shrink: 0; font-size: 28px; color: #cdd9e8; }
+.mstat__coin { flex-shrink: 0; width: 28px; height: 28px; object-fit: contain; opacity: .8; }
+.main-grid { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); gap: 36px; align-items: start; margin-top: 4px; }
+.side-column { display: flex; flex-direction: column; gap: 28px; }
+.panel { display: flex; flex-direction: column; }
+.panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; padding-bottom: 10px; border-bottom: 2px solid rgba(210,222,238,.55); }
+.panel-title { display: flex; align-items: center; gap: 8px; font-size: 15.5px; font-weight: 700; color: #14213b; }
+.panel-title svg { font-size: 18px; color: #2369e8; }
+.panel-more { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; font-weight: 600; color: #2a67d8; text-decoration: none; }
+.panel-more svg { font-size: 14px; }
+.hot-list, .announce-list, .activity-list { list-style: none; margin: 0; padding: 0; }
+.hot-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(231,238,248,.9); }
+.hot-item:last-child { border-bottom: 0; }
+.hot-rank { width: 22px; text-align: center; font-size: 15px; font-weight: 800; font-style: italic; color: #c2cdde; }
+.hot-rank.rank-1 { color: #ef4444; } .hot-rank.rank-2 { color: #f59e0b; } .hot-rank.rank-3 { color: #3b82f6; }
+.hot-thumb { width: 40px; height: 40px; border-radius: 10px; background: #f3f7fd; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hot-thumb img { width: 100%; height: 100%; object-fit: contain; }
+.hot-name { flex: 1; min-width: 0; font-size: 14px; font-weight: 600; color: #1f2d44; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hot-sales { font-size: 12.5px; color: #8493a8; }
+.announce-item { padding: 11px 0; border-bottom: 1px solid rgba(231,238,248,.9); }
+.announce-row { display: flex; align-items: center; gap: 8px; }
+.announce-tag { flex-shrink: 0; padding: 1px 7px; border-radius: 6px; font-size: 11px; font-weight: 700; background: rgba(35,105,232,.10); color: #2369e8; }
+.announce-title { flex: 1; min-width: 0; font-size: 13.5px; font-weight: 700; color: #1f2d44; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.announce-time { flex-shrink: 0; font-size: 11px; color: #aab6c8; }
+.announce-content { margin: 5px 0 0; font-size: 12.5px; line-height: 1.5; color: #8493a8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.activity-item { display: flex; align-items: center; gap: 11px; padding: 10px 0; border-bottom: 1px solid rgba(231,238,248,.9); }
+.activity-item:last-child { border-bottom: 0; }
+.activity-icon { width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #c2810a; background: rgba(245,158,11,.14); }
+.activity-icon.act-buy { color: #2369e8; background: rgba(35,105,232,.10); }
+.activity-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.activity-content { font-size: 13px; color: #1f2d44; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.activity-time { font-size: 11px; color: #9aa8bd; }
+.activity-amount { font-size: 13.5px; color: #d65a3a; }

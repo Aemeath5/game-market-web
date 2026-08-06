@@ -1,0 +1,128 @@
+@media (max-width: 768px) {
+  .desktop-nav { display: none; }
+  .mobile-nav { position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; height: 54px; padding: 0 12px 0 15px; background: #fff; border-bottom: 1px solid #e5e7eb; box-shadow: 0 1px 6px rgba(0,0,0,.06); }
+  .mobile-logo { color: #2563eb; font-size: 16px; font-weight: 800; text-decoration: none; }
+  .mobile-actions { display: flex; align-items: center; gap: 2px; }
+  .mobile-actions button { position: relative; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; background: transparent; color: #748397; }
+  .mobile-actions svg { font-size: 17px; }
+  .mobile-badge { position: absolute; top: 1px; right: 1px; min-width: 14px; height: 14px; padding: 0 3px; border-radius: 999px; background: #f45454; color: #fff; font-size: 8px; font-style: normal; line-height: 14px; }
+  .mobile-avatar { width: 31px; height: 31px; margin-left: 3px; }
+  .mobile-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid #e5edf8; }
+  .site-main { min-height: calc(100vh - 54px); }
+
+  .mobile-tabbar { position: fixed; left: 10px; right: 10px; bottom: calc(env(safe-area-inset-bottom,0px) + 8px); z-index: 50; display: grid; grid-template-columns: 1fr 1fr 54px 1fr 1fr; align-items: center; height: 58px; padding: 5px 8px; border-radius: 20px; background: rgba(255,255,255,.98); box-shadow: 0 16px 42px rgba(19,44,89,.18); backdrop-filter: blur(14px); }
+  .tabbar-item, .tabbar-add { text-decoration: none; }
+  .tabbar-item { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #7a8798; font-size: 10px; font-weight: 700; }
+  .tabbar-icon { font-size: 18px; }
+  .tabbar-dot { position: absolute; top: 0; left: 57%; min-width: 15px; height: 15px; padding: 0 4px; border-radius: 999px; background: #f5483b; color: #fff; font-size: 9px; font-style: normal; line-height: 15px; text-align: center; box-shadow: 0 0 0 2px #fff; }
+  .tabbar-item.active { color: #246cf0; }
+  .tabbar-add { justify-self: center; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; background: linear-gradient(180deg,#3d8bff,#1c62df); box-shadow: 0 10px 20px rgba(34,105,236,.32); }
+  .tabbar-add-icon { font-size: 26px; }
+
+  .dashboard-page, .page-light { min-height: calc(100vh - 54px); }
+  .dashboard-container, .market-container, .detail-container, .inventory-container, .orders-container { padding: 12px 12px 86px; gap: 14px; }
+  .hero-carousel { height: 168px; border-radius: 10px; }
+  .hero-carousel__caption { height: 34px; padding: 0 11px; font-size: 11px; }
+  .wallet-card { border-radius: 13px; }
+  .wallet-card__head { padding: 12px 14px; }
+  .wallet-card__body { padding: 14px 16px; }
+  .wallet-balance__icon { width: 34px; height: 34px; }
+  .wallet-balance__num { font-size: 19px; }
+  .wallet-voucher { padding: 8px 10px; }
+  .wallet-voucher__expire { font-size: 9px; padding: 2px 6px; }
+  .quick-grid { grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .quick-cell { padding: 12px 4px; }
+  .market-stats { grid-template-columns: repeat(2,1fr); gap: 4px 0; padding: 4px 0; }
+  .mstat { padding: 10px 14px; }
+  .mstat:nth-child(3) { border-left: none; }
+  .mstat__num { font-size: 20px; }
+  .mstat__icon { font-size: 24px; }
+  .mstat__coin { width: 24px; height: 24px; }
+  .main-grid { gap: 22px; }
+  .side-column { gap: 22px; }
+  .hot-item { padding: 9px 0; }
+  .panel-title { font-size: 14px; }
+
+  .page-heading-row h1 { font-size: 23px; }
+  .page-heading-row .primary-button { min-height: 38px; padding: 0 13px; font-size: 11px; }
+  .market-toolbar { margin-top: 14px; padding: 10px; border-radius: 13px; }
+  .market-tabs button { height: 38px; }
+  .market-search-row { grid-template-columns: 1fr auto; }
+  .market-search-row .filter-button { display: none; }
+  .market-search-row .light-select { padding: 0 10px; }
+  .market-filter-chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+  .market-filter-chips::-webkit-scrollbar { display: none; }
+  .market-filter-chips button { flex-shrink: 0; }
+  .market-summary { margin: 11px 2px; }
+  .market-layout { grid-template-columns: 1fr; }
+  .market-sidebar { display: none; }
+  .market-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .market-card { border-radius: 12px; }
+  .market-card__image-wrap { height: 135px; }
+  .market-card__body { padding: 10px; }
+  .market-card__body h3 { font-size: 13px; }
+  .market-card__meta { display: none; }
+  .market-card__footer strong { font-size: 18px; }
+  .market-card__seller { max-width: 78px; }
+
+  .breadcrumb { margin-bottom: 10px; }
+  .detail-main { border-radius: 13px; }
+  .detail-gallery { min-height: 280px; }
+  .detail-gallery > img { max-width: 62%; max-height: 62%; }
+  .detail-info { padding: 18px; }
+  .detail-info h1 { font-size: 24px; }
+  .detail-price { margin: 17px 0; }
+  .detail-price strong { font-size: 34px; }
+  .detail-actions { grid-template-columns: 1fr 1.3fr; }
+  .detail-lower { margin-top: 12px; gap: 12px; }
+  .detail-description, .seller-card { padding: 16px; border-radius: 13px; }
+  .detail-features { grid-template-columns: 1fr; }
+
+  .inventory-tabs { margin-top: 14px; padding: 6px; border-radius: 13px; }
+  .inventory-tabs button { font-size: 11px; gap: 5px; }
+  .inventory-tabs button span { display: none; }
+  .inventory-toolbar { padding: 9px; }
+  .inventory-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .inventory-card { padding: 10px; border-radius: 12px; }
+  .inventory-card > img { width: 76px; height: 76px; }
+  .publish-grid { grid-template-columns: 1fr; }
+  .publish-form, .publish-help { padding: 16px; border-radius: 13px; }
+  .two-fields { gap: 8px; }
+
+  .chat-page { padding: 10px 0 78px; }
+  .chat-shell { height: calc(100vh - 142px); min-height: 520px; grid-template-columns: 92px minmax(0,1fr); border-radius: 0; border-left: 0; border-right: 0; }
+  .chat-contacts { overflow: hidden; }
+  .chat-contacts > header { padding: 12px 8px 6px; }
+  .chat-contacts h1 { font-size: 16px; }
+  .chat-contacts .page-kicker, .chat-contacts header button, .chat-contacts .light-search { display: none; }
+  .contact-row { flex-direction: column; gap: 4px; padding: 10px 4px; }
+  .contact-row > img { width: 40px; height: 40px; }
+  .contact-main { align-items: center; width: 100%; }
+  .contact-main strong { max-width: 78px; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .contact-main small, .contact-side small { display: none; }
+  .contact-side { position: absolute; }
+  .contact-side i { position: absolute; top: -47px; left: 19px; }
+  .chat-dialog__header { height: 58px; padding: 0 12px; }
+  .chat-messages { padding: 14px 10px; }
+  .message-row p { max-width: 76%; padding: 9px 11px; font-size: 11px; }
+  .chat-input { height: 56px; padding: 8px; }
+
+  .profile-banner { height: 140px; }
+  .profile-container { margin-top: -40px; padding: 0 12px; }
+  .profile-summary { grid-template-columns: auto 1fr; gap: 12px; padding: 15px; border-radius: 13px; }
+  .profile-avatar-wrap { width: 72px; height: 72px; }
+  .profile-name-row h1 { font-size: 20px; }
+  .profile-info p { font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 240px; }
+  .profile-edit { display: none; }
+  .profile-stats { grid-column: 1 / 3; padding-top: 13px; }
+  .profile-stats strong { font-size: 15px; }
+  .profile-cards { margin-top: 12px; gap: 12px; }
+  .profile-orders, .profile-menu { border-radius: 13px; padding: 14px; }
+  .profile-order-grid svg { font-size: 22px; }
+  .profile-order-grid a { font-size: 10px; }
+
+  .orders-list { border-radius: 13px; }
+  .orders-list article { grid-template-columns: 50px minmax(0,1fr) auto; gap: 10px; padding: 12px; }
+  .orders-list img { width: 50px; height: 50px; }
+  .orders-list > article > span { grid-column: 2 / 4; justify-self: start; }
+}

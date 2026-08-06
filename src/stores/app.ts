@@ -2,29 +2,15 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
 export const useAppStore = defineStore('app', () => {
-  const sidebarCollapsed = ref(false)
   const unreadMessages = ref(3)
-  const loggedIn = ref(false)
-  const displayName = ref('游客代理人')
-
-  const userInitial = computed(() => displayName.value.slice(0, 1))
-
-  function toggleSidebar() {
-    sidebarCollapsed.value = !sidebarCollapsed.value
-  }
+  const loggedIn = ref(true)
+  const displayName = ref('wiki')
+  const userInitial = computed(() => displayName.value.slice(0, 1).toUpperCase())
 
   function mockLogin() {
     loggedIn.value = true
-    displayName.value = 'Aemeath'
+    displayName.value = 'wiki'
   }
 
-  return {
-    sidebarCollapsed,
-    unreadMessages,
-    loggedIn,
-    displayName,
-    userInitial,
-    toggleSidebar,
-    mockLogin,
-  }
+  return { unreadMessages, loggedIn, displayName, userInitial, mockLogin }
 })

@@ -1,135 +1,190 @@
 <script setup lang="ts">
 import {
+  Archive,
   ArrowRight,
-  BadgeCheck,
-  Clock3,
-  Crown,
-  ShieldCheck,
+  Boxes,
+  History,
+  Hammer,
+  Megaphone,
+  ReceiptText,
+  ShoppingBasket,
+  ShoppingCart,
   Sparkles,
+  Store,
+  Tag,
+  Trophy,
   TrendingUp,
+  WalletCards,
+  Zap,
 } from 'lucide-vue-next'
-import Button from '@/components/ui/Button.vue'
-import GameCard from '@/components/ui/GameCard.vue'
-import { products } from '@/data/products'
+import { useAppStore } from '@/stores/app'
+
+const app = useAppStore()
+
+const quickLinks = [
+  { label: '浏览市场', path: '/market', icon: ShoppingBasket },
+  { label: '上架道具', path: '/listings', icon: Tag },
+  { label: '参与拍卖', path: '/market?tab=auction', icon: Trophy },
+  { label: '军需商店', path: '/orders', icon: ShoppingCart },
+  { label: '武器锻造', path: '/listings', icon: Hammer },
+  { label: '背包管理', path: '/listings', icon: Boxes },
+]
+
+const hotItems = [
+  { name: '冰之印', count: 11, image: '/assets/reference/item-orb.svg' },
+  { name: '脆弱树脂', count: 10, image: '/assets/reference/item-snow.svg' },
+  { name: '芙宁娜', count: 6, image: '/assets/reference/avatar-main.svg' },
+  { name: '最初的大魔术', count: 5, image: '/assets/reference/item-flower.svg' },
+  { name: '罗莎莉亚', count: 5, image: '/assets/reference/avatar-4.svg' },
+]
+
+const activities = [
+  { text: '上架「原素花蜜」', time: '1天前', amount: '-100', type: 'listed' },
+  { text: '上架「微光花蜜」', time: '1天前', amount: '-50', type: 'listed' },
+  { text: '上架「鸣草」', time: '1天前', amount: '-30', type: 'listed' },
+  { text: '上架「石珀」', time: '1天前', amount: '-30', type: 'listed' },
+  { text: '上架「石珀」×100', time: '2天前', amount: '-3,000', type: 'listed' },
+  { text: '购买「雷霆数珠」', time: '7天前', amount: '-475', type: 'buy' },
+]
 </script>
 
 <template>
-  <div class="space-y-7">
-    <section class="dashboard-hero">
-      <div class="absolute inset-0 grid-pattern opacity-[.16]" />
-      <img src="/assets/hero.svg" alt="" class="hero-art" />
-
-      <div class="hero-copy">
-        <span class="hero-eyebrow">
-          <Sparkles class="size-3.5 text-[var(--gold)]" />
-          PLAYER TRADING TERMINAL
-        </span>
-        <h1 class="hero-title">
-          游戏资产交易<br />
-          <span class="hero-title-gradient">更安全，也更漂亮</span>
-        </h1>
-        <p class="hero-description">
-          账号、道具、代练、拍卖与求购统一管理。验号、担保、交付、聊天记录全部可追踪，像游戏主界面一样直观。
-        </p>
-        <div class="hero-actions">
-          <RouterLink to="/market">
-            <Button size="lg">进入交易市场 <ArrowRight class="size-5" /></Button>
-          </RouterLink>
-          <RouterLink to="/listings">
-            <Button variant="outline" size="lg">发布我的商品</Button>
-          </RouterLink>
+  <div class="dashboard-page">
+    <div class="dashboard-container">
+      <section class="hero-row">
+        <div class="hero-carousel">
+          <img src="/assets/reference/dashboard-banner.svg" alt="限时活动" class="hero-carousel__image" />
+          <div class="hero-carousel__caption">
+            <span>限定祈愿·杯装之诗</span>
+            <span class="hero-dots"><i class="active" /><i /></span>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-float-card hidden xl:block">
-        <span>今日成交趋势</span>
-        <strong class="flex items-center gap-2">+18.4% <TrendingUp class="size-4 text-emerald-200" /></strong>
-      </div>
+        <div class="hero-side">
+          <section class="wallet-card">
+            <header class="wallet-card__head">
+              <span class="wallet-greeting"><Sparkles /> 早上好，{{ app.displayName }}</span>
+              <RouterLink to="/profile" class="wallet-wallet-link"><WalletCards /></RouterLink>
+            </header>
+            <div class="wallet-card__body">
+              <div class="wallet-balances">
+                <div class="wallet-balance">
+                  <img src="/assets/reference/primogem.svg" alt="原石" class="wallet-balance__icon" />
+                  <div class="wallet-balance__text">
+                    <strong class="wallet-balance__num">775,650</strong>
+                    <span class="wallet-balance__label">原石</span>
+                  </div>
+                </div>
+                <span class="wallet-balances__divider" />
+                <div class="wallet-balance">
+                  <img src="/assets/reference/mora.svg" alt="摩拉" class="wallet-balance__icon" />
+                  <div class="wallet-balance__text">
+                    <strong class="wallet-balance__num">703,151</strong>
+                    <span class="wallet-balance__label">摩拉</span>
+                  </div>
+                </div>
+              </div>
 
-      <div class="hero-trustbar">
-        <span class="hero-trust-chip"><ShieldCheck class="size-4 text-emerald-200" /> 平台担保</span>
-        <span class="hero-trust-chip"><BadgeCheck class="size-4 text-cyan-200" /> 实名卖家</span>
-        <span class="hero-trust-chip"><Clock3 class="size-4 text-amber-200" /> 全天审核</span>
-      </div>
-    </section>
+              <div class="wallet-voucher">
+                <span class="voucher-ticket">🎟️</span>
+                <div class="wallet-voucher__text">
+                  <strong class="wallet-voucher__num">26</strong>
+                  <span class="wallet-voucher__label">摩石凭证</span>
+                </div>
+                <span class="wallet-voucher__expire">26 将于 12 小时后过期</span>
+              </div>
 
-    <section class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-      <div class="stat-card">
-        <span>在售商品</span>
-        <strong>12,864</strong>
-        <small>今日新增 328</small>
-      </div>
-      <div class="stat-card">
-        <span>成功交易</span>
-        <strong>86,210</strong>
-        <small>成交率 98.4%</small>
-      </div>
-      <div class="stat-card">
-        <span>认证卖家</span>
-        <strong>3,905</strong>
-        <small>违规率低于 0.3%</small>
-      </div>
-      <div class="stat-card stat-card-accent">
-        <span>平台保障</span>
-        <strong>¥ 2.3 亿</strong>
-        <small>累计担保金额</small>
-      </div>
-    </section>
+              <div class="wallet-mini">
+                <RouterLink to="/listings" class="wallet-mini__item">
+                  <strong class="wallet-mini__num">40</strong>
+                  <span class="wallet-mini__label">我的挂单</span>
+                </RouterLink>
+                <RouterLink to="/listings" class="wallet-mini__item">
+                  <strong class="wallet-mini__num">157</strong>
+                  <span class="wallet-mini__label">背包道具</span>
+                </RouterLink>
+              </div>
+            </div>
+          </section>
 
-    <section>
-      <div class="section-heading">
-        <div>
-          <span class="section-kicker">RECOMMENDED</span>
-          <h2>热门商品</h2>
+          <div class="quick-grid">
+            <RouterLink v-for="item in quickLinks" :key="item.label" :to="item.path" class="quick-cell">
+              <component :is="item.icon" class="quick-cell__icon" />
+              <span class="quick-cell__label">{{ item.label }}</span>
+            </RouterLink>
+          </div>
         </div>
-        <RouterLink to="/market" class="flex items-center gap-2 text-sm font-black text-pink-200">
-          查看全部 <ArrowRight class="size-4" />
+      </section>
+
+      <section class="market-stats">
+        <RouterLink to="/market" class="mstat">
+          <div class="mstat__body"><strong class="mstat__num">172</strong><span class="mstat__label"><i class="mstat__dot dot-active" />在售商品</span></div>
+          <Store class="mstat__icon" />
         </RouterLink>
-      </div>
+        <div class="mstat">
+          <div class="mstat__body"><strong class="mstat__num">0</strong><span class="mstat__label"><i class="mstat__dot dot-sold" />今日成交</span></div>
+          <Zap class="mstat__icon" />
+        </div>
+        <div class="mstat">
+          <div class="mstat__body"><strong class="mstat__num">677.2 万</strong><span class="mstat__label"><i class="mstat__dot dot-volume" />累计成交额</span></div>
+          <img src="/assets/reference/mora.svg" alt="" class="mstat__coin" />
+        </div>
+        <div class="mstat">
+          <div class="mstat__body"><strong class="mstat__num">1,217</strong><span class="mstat__label"><i class="mstat__dot dot-total" />历史挂单</span></div>
+          <Archive class="mstat__icon" />
+        </div>
+      </section>
 
-      <div class="mt-4 grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
-        <GameCard v-for="product in products" :key="product.id" :product="product" />
-      </div>
-    </section>
+      <section class="main-grid">
+        <div class="panel hot-panel">
+          <header class="panel-header">
+            <div class="panel-title"><TrendingUp /><span>热门商品</span></div>
+            <RouterLink to="/market" class="panel-more">进入市场 <ArrowRight /></RouterLink>
+          </header>
+          <ul class="hot-list">
+            <li v-for="(item, index) in hotItems" :key="item.name" class="hot-item">
+              <span class="hot-rank" :class="`rank-${index + 1}`">{{ index + 1 }}</span>
+              <span class="hot-thumb"><img :src="item.image" :alt="item.name" /></span>
+              <span class="hot-name">{{ item.name }}</span>
+              <span class="hot-sales">{{ item.count }} 笔成交</span>
+            </li>
+          </ul>
+        </div>
 
-    <section class="grid gap-4 xl:grid-cols-[1.35fr_.85fr]">
-      <div class="panel p-5 md:p-7">
-        <div class="section-heading">
-          <div>
-            <span class="section-kicker">TRADE FLOW</span>
-            <h2>安全交易流程</h2>
-          </div>
-          <Sparkles class="size-7 text-pink-200" />
-        </div>
-        <div class="mt-6 grid gap-3 md:grid-cols-4">
-          <div v-for="(step, index) in ['发布并审核', '买家付款', '卖家交付', '确认后结算']" :key="step" class="flow-step">
-            <span>0{{ index + 1 }}</span>
-            <strong>{{ step }}</strong>
-          </div>
-        </div>
-      </div>
+        <aside class="side-column">
+          <section class="panel">
+            <header class="panel-header">
+              <div class="panel-title"><Megaphone /><span>市场公告</span></div>
+              <a class="panel-more" href="#">查看全部 <ArrowRight /></a>
+            </header>
+            <ul class="announce-list">
+              <li class="announce-item">
+                <div class="announce-row">
+                  <span class="announce-tag">更新公告</span>
+                  <span class="announce-title">功能优化</span>
+                  <span class="announce-time">1个月前</span>
+                </div>
+                <p class="announce-content">本次更新带来全新公告中心与红点提醒，合成系统升级、重...</p>
+              </li>
+            </ul>
+          </section>
 
-      <div class="panel p-5 md:p-7">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <span class="section-kicker">ANNOUNCEMENT</span>
-            <h2 class="mt-2 text-xl font-black">平台公告</h2>
-          </div>
-          <div class="grid size-11 place-items-center rounded-2xl border border-amber-200/20 bg-amber-200/10">
-            <Crown class="size-5 text-amber-200" />
-          </div>
-        </div>
-        <div class="mt-5 space-y-4 text-sm">
-          <p class="rounded-2xl border border-pink-200/15 bg-pink-200/7 p-4">
-            <strong class="block">交易安全升级</strong>
-            <span class="mt-1 block text-white/48">高价值商品将进入人工复核。</span>
-          </p>
-          <p class="rounded-2xl border border-cyan-200/15 bg-cyan-200/7 p-4">
-            <strong class="block">卖家认证开放</strong>
-            <span class="mt-1 block text-white/48">完成认证可提高商品曝光。</span>
-          </p>
-        </div>
-      </div>
-    </section>
+          <section class="panel">
+            <header class="panel-header">
+              <div class="panel-title"><History /><span>最近活动</span></div>
+              <RouterLink to="/orders" class="panel-more">交易记录 <ArrowRight /></RouterLink>
+            </header>
+            <ul class="activity-list">
+              <li v-for="item in activities" :key="item.text" class="activity-item">
+                <span class="activity-icon" :class="`act-${item.type}`"><ReceiptText /></span>
+                <span class="activity-body"><span class="activity-content">{{ item.text }}</span><span class="activity-time">{{ item.time }}</span></span>
+                <strong class="activity-amount">{{ item.amount }}</strong>
+              </li>
+            </ul>
+          </section>
+        </aside>
+      </section>
+    </div>
   </div>
 </template>
+

@@ -1,0 +1,23 @@
+
+:root {
+  --blue: #246cf0;
+  --blue-dark: #1c62df;
+  --text: #14213b;
+  --muted: #8493a8;
+  --line: #e5edf8;
+  --page: #f3f8ff;
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--page);
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--page); }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--page); color: var(--text); }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+svg { width: 1em; height: 1em; stroke-width: 1.8; }
+.site-shell { min-height: 100vh; background: var(--page); }
+.site-main { min-height: calc(100vh - 60px); }
