@@ -11,6 +11,8 @@
 - Pinia
 - Tailwind CSS 4
 - shadcn-vue 风格基础组件
+- Docker
+- Nginx
 
 ## 当前页面
 
@@ -27,9 +29,9 @@
 
 ## 当前状态
 
-第一阶段 UI 骨架已提交，GitHub Actions 会在每次推送后自动执行类型检查和生产构建。
+第一阶段 UI 骨架已提交。GitHub Actions 会执行前端构建和 Docker 镜像运行检查。
 
-## 启动
+## 本地开发
 
 ```bash
 npm install
@@ -39,3 +41,30 @@ npm run dev
 默认前端地址：`http://localhost:5173`
 
 默认代理后端：`http://localhost:8080`
+
+## Docker 启动
+
+```bash
+docker compose up -d --build
+```
+
+启动后访问：
+
+```text
+http://服务器IP:9090
+```
+
+查看状态：
+
+```bash
+docker compose ps
+docker compose logs -f web
+```
+
+停止容器：
+
+```bash
+docker compose down
+```
+
+外部端口固定为 `9090`，容器内部由 Nginx 监听 `80`。健康检查地址为 `/healthz`。
