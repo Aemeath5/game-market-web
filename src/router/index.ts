@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AppLayout from '@/layouts/AppLayout.vue'
+import AdminLayout from '@/layouts/AdminLayout.vue'
 import DashboardPage from '@/pages/DashboardPage.vue'
 import MarketPage from '@/pages/MarketPage.vue'
 import ProductDetailPage from '@/pages/ProductDetailPage.vue'
@@ -8,11 +9,27 @@ import OrdersPage from '@/pages/OrdersPage.vue'
 import ChatPage from '@/pages/ChatPage.vue'
 import ProfilePage from '@/pages/ProfilePage.vue'
 import LoginPage from '@/pages/LoginPage.vue'
+import AdminDashboardPage from '@/pages/admin/AdminDashboardPage.vue'
+import AdminProductsPage from '@/pages/admin/AdminProductsPage.vue'
+import AdminOrdersPage from '@/pages/admin/AdminOrdersPage.vue'
+import AdminUsersPage from '@/pages/admin/AdminUsersPage.vue'
+import AdminSettingsPage from '@/pages/admin/AdminSettingsPage.vue'
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/login', component: LoginPage },
+    {
+      path: '/admin',
+      component: AdminLayout,
+      children: [
+        { path: '', name: 'admin-dashboard', component: AdminDashboardPage },
+        { path: 'products', name: 'admin-products', component: AdminProductsPage },
+        { path: 'orders', name: 'admin-orders', component: AdminOrdersPage },
+        { path: 'users', name: 'admin-users', component: AdminUsersPage },
+        { path: 'settings', name: 'admin-settings', component: AdminSettingsPage },
+      ],
+    },
     {
       path: '/',
       component: AppLayout,

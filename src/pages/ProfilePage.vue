@@ -17,7 +17,7 @@ const menu = [
     <section class="profile-banner" />
     <div class="profile-container">
       <section class="profile-summary panel-light">
-        <div class="profile-avatar-wrap"><img src="/assets/reference/avatar-main.svg" alt="wiki" /></div>
+        <div class="profile-avatar-wrap"><img src="/assets/reference/avatar-main.svg" alt="Aemeath" /></div>
         <div class="profile-info"><div class="profile-name-row"><h1>{{ app.displayName }}</h1><span>Lv.12</span></div><p>旅行者，愿风神护佑你的每一笔交易。</p></div>
         <button class="secondary-button profile-edit"><Edit3 /> 编辑资料</button>
         <div class="profile-stats">

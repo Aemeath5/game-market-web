@@ -7,6 +7,7 @@ import {
   House,
   Mail,
   MessageCircle,
+  ShieldCheck,
   ShoppingBasket,
   ShoppingCart,
   Sparkles,
@@ -23,6 +24,7 @@ const mainNav = [
   { label: '交易中心', path: '/market', icon: ShoppingBasket },
   { label: '冒险', path: '/orders', icon: Sparkles },
   { label: '角色养成', path: '/listings', icon: Sword },
+  { label: '管理后台', path: '/admin', icon: ShieldCheck },
 ]
 
 const active = (path: string) => (path === '/' ? route.path === '/' : route.path.startsWith(path))
@@ -51,7 +53,7 @@ const active = (path: string) => (path === '/' ? route.path === '/' : route.path
     <button class="nav-icon-btn" aria-label="购物车"><ShoppingCart /></button>
     <button class="nav-icon-btn nav-online" aria-label="连接状态"><CircleHelp /></button>
     <RouterLink to="/profile" class="nav-user-trigger">
-      <img src="/assets/reference/avatar-main.svg" alt="wiki" />
+      <img src="/assets/reference/avatar-main.svg" alt="Aemeath" />
       <span>{{ app.displayName }}</span>
     </RouterLink>
   </header>
@@ -63,7 +65,7 @@ const active = (path: string) => (path === '/' ? route.path === '/' : route.path
       <button aria-label="通知"><Bell /></button>
       <button aria-label="消息"><MessageCircle /><i class="mobile-badge">3</i></button>
       <RouterLink to="/profile" class="mobile-avatar">
-        <img src="/assets/reference/avatar-main.svg" alt="wiki" />
+        <img src="/assets/reference/avatar-main.svg" alt="Aemeath" />
       </RouterLink>
     </div>
   </header>

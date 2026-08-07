@@ -4,12 +4,12 @@ import { computed, ref } from 'vue'
 export const useAppStore = defineStore('app', () => {
   const unreadMessages = ref(3)
   const loggedIn = ref(true)
-  const displayName = ref('wiki')
+  const displayName = ref('Aemeath')
   const userInitial = computed(() => displayName.value.slice(0, 1).toUpperCase())
 
   function mockLogin() {
     loggedIn.value = true
-    displayName.value = 'wiki'
+    displayName.value = 'Aemeath'
   }
 
   return { unreadMessages, loggedIn, displayName, userInitial, mockLogin }
