@@ -14,6 +14,14 @@
 - Docker
 - Nginx
 
+后端Go
+Gin
+MySQL
+Redis
+WebSocket
+本地储存
+
+
 ## 当前页面
 
 - 首页
