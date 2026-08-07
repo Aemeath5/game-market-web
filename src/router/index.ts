@@ -9,6 +9,8 @@ import OrdersPage from '@/pages/OrdersPage.vue'
 import ChatPage from '@/pages/ChatPage.vue'
 import ProfilePage from '@/pages/ProfilePage.vue'
 import LoginPage from '@/pages/LoginPage.vue'
+import RegisterPage from '@/pages/RegisterPage.vue'
+import ForgotPasswordPage from '@/pages/ForgotPasswordPage.vue'
 import AdminDashboardPage from '@/pages/admin/AdminDashboardPage.vue'
 import AdminProductsPage from '@/pages/admin/AdminProductsPage.vue'
 import AdminOrdersPage from '@/pages/admin/AdminOrdersPage.vue'
@@ -19,6 +21,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/login', component: LoginPage },
+    { path: '/register', component: RegisterPage },
+    { path: '/forgot-password', component: ForgotPasswordPage },
     {
       path: '/admin',
       component: AdminLayout,
